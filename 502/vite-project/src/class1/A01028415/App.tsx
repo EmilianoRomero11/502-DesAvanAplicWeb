@@ -11,7 +11,7 @@ function Class1() {
     <div className="min-h-screen bg-gray-100 p-6">
       <nav style={{ marginBottom: '20px' }}>
         <Link 
-          to="/classes"
+          to="/menu"
           style={{
             textDecoration: 'none',
             color: '#646cff',
