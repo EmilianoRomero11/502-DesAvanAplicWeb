@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-// Import your ClassesMenu component
+
 import ClassesMenu from './class1/A01028415/ClassesMenu/App'
+import Class1 from './class1/A01028415/App'
 
 function HomePage() {
   const [count, setCount] = useState(0)
@@ -33,7 +34,7 @@ function HomePage() {
         Click on the Vite and React logos to learn more
       </p>
       <p>
-        <Link to="/classes-menu">
+        <Link to="/menu">
           Emiliano Romero López A01028415
         </Link>
       </p>
@@ -46,7 +47,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/classes-menu" element={<ClassesMenu />} />
+        <Route path="/menu" element={<ClassesMenu />} />
+        <Route path="/menu/class1/*" element={<Class1 />} />
       </Routes>
     </Router>
   )
