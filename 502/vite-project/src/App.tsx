@@ -1,11 +1,14 @@
+// App.tsx
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+// Import your ClassesMenu component
+import ClassesMenu from './class1/A01028415/ClassesMenu/App'
 
-function App() {
+function HomePage() {
   const [count, setCount] = useState(0)
-  //const [showIframe, setShowIframe] = useState(false)
 
   return (
     <>
@@ -30,12 +33,22 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <p>
-        <a href="src/class1/A01028415/ClassesMenu/index.html" target="_blank" rel="noopener noreferrer">
+        <Link to="/classes-menu">
           Emiliano Romero López A01028415
-        </a>
+        </Link>
       </p>
     </>
-    
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/classes-menu" element={<ClassesMenu />} />
+      </Routes>
+    </Router>
   )
 }
 

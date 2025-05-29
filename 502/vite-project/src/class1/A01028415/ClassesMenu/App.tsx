@@ -1,9 +1,8 @@
-// import { useState } from "react";
+// src/class1/A01028415/ClassesMenu/App.tsx
+import { Link } from 'react-router-dom'
 import "./App.css";
 
-function App() {
-  // const [count, setCount] = useState(0);
-
+function ClassesMenu() {
   const classLinks = [
     { title: "Class 1", href: "/src/class1/A01028415/index.html" },
     { title: "Class 2", href: "/src/class2/A01028415/index.html" },
@@ -17,6 +16,20 @@ function App() {
 
   return (
     <>
+      <nav style={{ marginBottom: '20px' }}>
+        <Link 
+          to="/" 
+          style={{ 
+            textDecoration: 'none', 
+            color: '#646cff', 
+            fontSize: '16px',
+            fontWeight: '500'
+          }}
+        >
+          ← Back to Home
+        </Link>
+      </nav>
+      
       <h1>
         Classes Menu Emiliano Romero, José Manuel Zumaya, Isaac Shakalo, Felipe
         de Araujo
@@ -41,4 +54,4 @@ function App() {
   );
 }
 
-export default App;
+export default ClassesMenu;
