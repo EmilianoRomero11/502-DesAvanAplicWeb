@@ -7,6 +7,13 @@ import './App.css'
 
 import ClassesMenu from './class1/A01028415/ClassesMenu/App'
 import Class1 from './class1/A01028415/App'
+import Class2 from './class2/A01028415/App'
+import Class3 from './class3/A01028415/App'
+import Class4 from './class4/A01784045/App'
+import Class5 from './class5/A01784465/App'
+import Class6 from './class6/A01784238/App'
+import Class7 from './class7/A01028415/App'
+import Class8 from './class8/A01784238_A01784045/App'
 
 function HomePage() {
   const [count, setCount] = useState(0)
@@ -49,6 +56,13 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<ClassesMenu />} />
         <Route path="/menu/class1/*" element={<Class1 />} />
+        <Route path="/menu/class2/*" element={<Class2 />} />
+        <Route path="/menu/class3/*" element={<Class3 />} />
+        <Route path="/menu/class4/*" element={<Class4 />} />
+        <Route path="/menu/class5/*" element={<Class5 />} />
+        <Route path="/menu/class6/*" element={<Class6 />} />
+        <Route path="/menu/class7/*" element={<Class7 />} />
+        <Route path="/menu/class8/*" element={<Class8 />} />
       </Routes>
     </Router>
   )

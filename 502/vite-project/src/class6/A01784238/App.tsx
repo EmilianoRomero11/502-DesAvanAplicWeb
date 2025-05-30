@@ -1,18 +1,6 @@
-/*
- * Main application file that sets up routing, authentication, and role-based access control.
- *
- * Last edit: April 25, 2025
- * Authors: José Manuel García Zumaya
- */
-
+// src/class6/A01784238/App.tsx
 import { useContext } from "react";
-import { createRoot } from "react-dom/client";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Link, Route, Routes, Navigate } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import Dashboard from "./components/Dashboard";
 import { UserProvider, UserContext } from "./components/UserContext";
@@ -29,7 +17,7 @@ const AuthRedirect = () => {
 
   // Redirect to dashboard if the user is logged in
   if (isLoggedIn) {
-    return <Navigate to="/dashboard" />;
+    return <Dashboard />;
   }
 
   // Show login form and user role information if not logged in
@@ -133,80 +121,93 @@ const AppContent = () => {
   const { user, isLoggedIn, logout } = useContext(UserContext);
 
   return (
-    <div className="app-container">
-      {/* Navigation bar for logged-in users */}
-      {isLoggedIn && (
-        <nav
+    <div className="min-h-screen bg-gray-100 p-6">
+      {/* Back to Classes Menu navigation */}
+      <nav style={{ marginBottom: '20px' }}>
+        <Link 
+          to="/menu"
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "1rem",
-            backgroundColor: "#f0f0f0",
-            marginBottom: "1rem",
+            textDecoration: 'none',
+            color: '#646cff',
+            fontSize: '16px',
+            fontWeight: '500'
           }}
         >
-          <div>
-            Usuario: <strong>{user?.name}</strong> | Rol:{" "}
-            <strong>{user?.role}</strong>
-          </div>
-          <button
-            onClick={logout}
+          ← Back to Classes Menu
+        </Link>
+      </nav>
+
+      <div className="app-container">
+        {/* Navigation bar for logged-in users */}
+        {isLoggedIn && (
+          <nav
             style={{
-              padding: "0.5rem 1rem",
-              backgroundColor: "#f44336",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "1rem",
+              backgroundColor: "#f0f0f0",
+              marginBottom: "1rem",
             }}
           >
-            Cerrar sesión
-          </button>
-        </nav>
-      )}
-
-      {/* Application routes */}
-      <Routes>
-        {/* Default route redirects based on authentication */}
-        <Route path="/" element={<AuthRedirect />} />
-
-        {/* Protected route for dashboard */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute
-              allowedRoles={["solicitante", "aprobador", "administrador"]}
+            <div>
+              Usuario: <strong>{user?.name}</strong> | Rol:{" "}
+              <strong>{user?.role}</strong>
+            </div>
+            <button
+              onClick={logout}
+              style={{
+                padding: "0.5rem 1rem",
+                backgroundColor: "#f44336",
+                color: "white",
+                border: "none",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
             >
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+              Cerrar sesión
+            </button>
+          </nav>
+        )}
 
-        {/* Route for access denied */}
-        <Route path="/access-denied" element={<div>Acceso denegado</div>} />
+        {/* Application routes */}
+        <Routes>
+          {/* Default route redirects based on authentication */}
+          <Route path="/" element={<AuthRedirect />} />
 
-        {/* Catch-all route redirects to default */}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+          {/* Protected route for dashboard */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute
+                allowedRoles={["solicitante", "aprobador", "administrador"]}
+              >
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Route for access denied */}
+          <Route path="/access-denied" element={<div>Acceso denegado</div>} />
+
+          {/* Catch-all route redirects to default */}
+          <Route path="*" element={<Navigate to="/class6" />} />
+        </Routes>
+      </div>
     </div>
   );
 };
 
 /*
- * Component: App
- * Root component that wraps the application with routing and user context.
+ * Component: Class6
+ * Root component that wraps the application with user context.
+ * Note: Router is handled by the main application
  */
-const App = () => {
+const Class6 = () => {
   return (
-    <Router>
-      <UserProvider>
-        <AppContent />
-      </UserProvider>
-    </Router>
+    <UserProvider>
+      <AppContent />
+    </UserProvider>
   );
 };
 
-// Render the application
-createRoot(document.getElementById("root")!).render(<App />);
-
-export default App;
+export default Class6;
