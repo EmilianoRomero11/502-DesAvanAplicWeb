@@ -4,6 +4,7 @@ import JestPage from "./pages/JestPage";
 import CypressPage from "./pages/CypressPage";
 import LoginPage from "./pages/LoginPage";
 import TravelFormPage from "./pages/TravelFormPage";
+import { BrowserRouter } from "react-router-dom";
 
 const Class8 = () => {
   const navigate = useNavigate();
@@ -57,4 +58,12 @@ const Class8 = () => {
   );
 };
 
-export default Class8;
+const Class8Compoent = () => {
+  return (
+    <BrowserRouter>
+      <Class8 />
+    </BrowserRouter>
+  );
+
+}
+export default Class8Compoent;
