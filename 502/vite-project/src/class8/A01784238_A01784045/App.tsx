@@ -1,5 +1,5 @@
 // src/class8/A01784238_A01784045/App.tsx
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import JestPage from "./pages/JestPage";
 import CypressPage from "./pages/CypressPage";
 import LoginPage from "./pages/LoginPage";
