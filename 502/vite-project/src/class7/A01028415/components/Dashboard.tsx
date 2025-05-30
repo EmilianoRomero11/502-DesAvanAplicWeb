@@ -30,7 +30,7 @@ const Dashboard: React.FC = () => {
 
   // Conexión WebSocket
   useEffect(() => {
-    ws.current = new WebSocket("ws://localhost:8080");
+    ws.current = new WebSocket("ws://172.16.62.184:8080/");
 
     ws.current.onopen = () => console.log("✅ WebSocket conectado");
     ws.current.onclose = () => console.log("🔌 WebSocket desconectado");
