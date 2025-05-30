@@ -28,27 +28,24 @@ const Class8 = () => {
         <nav>
           <ul style={{ display: "flex", listStyle: "none", gap: "20px" }}>
             <li>
-              <Link to="jest">Jest Testing</Link>
-            </li>
-            <li>
               <Link to="cypress">Cypress Testing</Link>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/jest" element={<JestPage />} />
-          <Route path="/cypress" element={<CypressPage />} />
+          <Route path="jest" element={<JestPage />} />
+          <Route path="cypress" element={<CypressPage />} />
           <Route
-            path="/cypress/login"
+            path="cypress/login"
             element={
               <LoginPage
                 onLogin={(username) => console.log(`Logged in as: ${username}`)}
               />
             }
           />
-          <Route path="/cypress/travel-form" element={<TravelFormPage />} />
-          <Route path="/" element={<JestPage />} />
+          <Route path="cypress/travel-form" element={<TravelFormPage />} />
+          <Route path="" element={<JestPage />} />  {/* Ruta por defecto */}
         </Routes>
       </div>
     </div>
