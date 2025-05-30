@@ -7,26 +7,22 @@ import TravelFormPage from "./pages/TravelFormPage";
 import { BrowserRouter } from "react-router-dom";
 
 const Class8 = () => {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       {/* Back to Classes Menu navigation */}
       <nav style={{ marginBottom: '20px' }}>
-        <button 
-          onClick={() => navigate('/menu')}
+        <Link 
+          to="/menu"
           style={{
-            background: 'none',
-            border: 'none',
             textDecoration: 'none',
             color: '#646cff',
             fontSize: '16px',
-            fontWeight: '500',
-            cursor: 'pointer'
+            fontWeight: '500'
           }}
         >
           ← Back to Classes Menu
-        </button>
+        </Link>
       </nav>
 
       <div className="container">
