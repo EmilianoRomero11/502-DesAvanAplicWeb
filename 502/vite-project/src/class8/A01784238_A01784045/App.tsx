@@ -1,26 +1,31 @@
 // src/class8/A01784238_A01784045/App.tsx
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import JestPage from "./pages/JestPage";
 import CypressPage from "./pages/CypressPage";
 import LoginPage from "./pages/LoginPage";
 import TravelFormPage from "./pages/TravelFormPage";
 
 const Class8 = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       {/* Back to Classes Menu navigation */}
       <nav style={{ marginBottom: '20px' }}>
-        <Link 
-          to="/menu"
+        <button 
+          onClick={() => navigate('/menu')}
           style={{
+            background: 'none',
+            border: 'none',
             textDecoration: 'none',
             color: '#646cff',
             fontSize: '16px',
-            fontWeight: '500'
+            fontWeight: '500',
+            cursor: 'pointer'
           }}
         >
           ← Back to Classes Menu
-        </Link>
+        </button>
       </nav>
 
       <div className="container">
@@ -45,7 +50,7 @@ const Class8 = () => {
             }
           />
           <Route path="cypress/travel-form" element={<TravelFormPage />} />
-          <Route path="" element={<JestPage />} />  {/* Ruta por defecto */}
+          <Route path="*" element={<JestPage />} /> {/* Catch-all route */}
         </Routes>
       </div>
     </div>
